@@ -49,6 +49,16 @@ Este projeto é uma API desenvolvida com FastAPI para gerenciar alunos, cursos e
 
    Aqui você pode testar todos os endpoints da API de forma interativa.
 
+## Passos para subir o projeto com Docker
+
+1. **Certifique-se de que o Docker e o Docker Compose estão instalados.**
+
+2. **Execute o comando na raiz do projeto:**
+   ```sh
+   docker-compose up --build
+   ```
+3. **Acesse a documentação interativa:**
+   Abra o navegador e acesse: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 ---
 
 ## Estrutura do Projeto
@@ -59,6 +69,8 @@ Este projeto é uma API desenvolvida com FastAPI para gerenciar alunos, cursos e
 - `database.py`: Configuração do banco de dados SQLite.
 - `routers/`: Diretório com os arquivos de rotas (alunos, cursos, matrículas).
 - `requirements.txt`: Lista de dependências do projeto.
+- `Dockerfile`: Define a imagem Docker para a aplicação.
+- `docker-compose.yml`: Orquestra a execução do container da aplicação.
 
 ---
 

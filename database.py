@@ -3,12 +3,12 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import os
 
-# Caminho para o arquivo SQLite (pode ser ajustado conforme necessário)
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATABASE_URL = f"sqlite:///{os.path.join(BASE_DIR, 'escola.db')}"
+# A URL do banco de dados é lida da variável de ambiente DATABASE_URL.
+# Se não estiver definida, usa um padrão para um arquivo 'escola.db' no diretório raiz.
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./escola.db")
 
 engine = create_engine(
-    DATABASE_URL, connect_args={"check_same_thread": False}
+    DATABASE_URL, connect_args={"check_same_thread": False} # check_same_thread é necessário apenas para SQLite
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
@@ -20,5 +20,3 @@ def get_db():
         yield db
     finally:
         db.close()
-
-

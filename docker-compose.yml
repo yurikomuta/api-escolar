@@ -1,0 +1,10 @@
+
+services:
+  api:
+    build: .  #construindo a imagem a a partir do Dockfile
+    container_name: api #nome do container
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - .:/app 
+    ports:
+      - "8000:8000"
